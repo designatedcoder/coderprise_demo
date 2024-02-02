@@ -12,7 +12,7 @@
                         {{ $vehicleCount }}
                     </p>
                 </h2>
-                <a href="#" class="text-gray-50 bg-blue-600 px-4 py-2 rounded uppercase tracking-widest hover:bg-blue-500">
+                <a href="{{ route('vehicles.create') }}" class="text-gray-50 bg-blue-600 px-4 py-2 rounded uppercase tracking-widest hover:bg-blue-500">
                     Create a Vehicle
                 </a>
             </div>
@@ -26,7 +26,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     @session('success')
                         <div class="text-center text-2xl bg-green-400 text-green-800 mb-4 py-6 rounded italic">
-                            success message
+                            {{ $value }}
                         </div>
                     @endsession
                     <div class=" bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -40,7 +40,7 @@
                                 @forelse ($vehicles as $vehicle)
                                     <div class="border border-gray-300 rounded">
                                         <div class="h-80 relative">
-                                            <img src="http://images.unsplash.com/photo-{{ $vehicle->image }}" alt="" class="h-full w-full object-cover">
+                                            <img src="{{ $vehicle->customImage }}" alt="" class="h-full w-full object-cover">
                                             <p class="text-2xl text-gray-200 absolute bottom-6 left-4">{{ $vehicle->year }} {{ $vehicle->make }} {{ $vehicle->model }}</p>
                                         </div>
                                         <div class="flex flex-col space-y-4 px-4 py-4">
@@ -69,11 +69,9 @@
                                 @endforelse
                             </div>
 
-                            @if ($vehicles->count())
-                                <div class="mt-6">
-                                    {{ $vehicles->links() }}
-                                </div>
-                            @endif
+                            <div class="mt-6">
+                                {{ $vehicles->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
