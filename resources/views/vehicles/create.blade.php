@@ -40,7 +40,7 @@
                         </div>
                         <!-- Image -->
                         <div class="flex flex-col mt-3 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 md:space-x-6 dark:text-gray-50" x-data="{
-                            imgSrc: `{{ $vehicle->customImage }}`,
+                            imgSrc: `{{ asset('/storage/images/defaults/no_image.jpg') }}`,
                             previewFile() {
                                 const file = this.$refs.imgFile.files[0];
                                 const reader = new FileReader();

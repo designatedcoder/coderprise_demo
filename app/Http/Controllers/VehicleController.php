@@ -38,6 +38,7 @@ class VehicleController extends Controller
         }
 
         $vehicle = Vehicle::create([
+            'uuid' => Str::uuid(),
             'make' => $request->make,
             'model' => $request->model,
             'year' => $request->year,
@@ -45,15 +46,17 @@ class VehicleController extends Controller
             'description' => $request->description,
             'image' => $fileName
         ]);
-        return to_route('vehicles.index')->with('success', $vehicle->year.' '.$vehicle->make.' '.$vehicle->model. ' has been created!');
+
+        return to_route('vehicles.show', $vehicle->uuid)->with('success', $vehicle->year.' '.$vehicle->make.' '.$vehicle->model. ' has been created!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Vehicle $vehicle)
-    {
-        //
+    public function show(Vehicle $vehicle) {
+        return view('vehicles.show', [
+            'vehicle' => $vehicle
+        ]);
     }
 
     /**
