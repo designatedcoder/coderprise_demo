@@ -36,8 +36,10 @@
                                     </div>
                                     <div class="flex justify-between">
                                         <div class="flex space-x-6">
-                                            <a href="#" class="text-gray-50 bg-orange-300 px-4 py-2 rounded uppercase tracking-widest hover:bg-orange-200">edit</a>
-                                            <form>
+                                            <a href="{{ route('vehicles.edit', $vehicle->uuid) }}" class="text-gray-50 bg-orange-300 px-4 py-2 rounded uppercase tracking-widest hover:bg-orange-200">edit</a>
+                                            <form action="{{ route('vehicles.destroy', $vehicle->uuid) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                                 <button type="submit" class="text-gray-50 bg-red-600 px-4 py-2 rounded uppercase tracking-widest hover:bg-red-500">Delete</button>
                                             </form>
                                         </div>

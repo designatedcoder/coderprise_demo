@@ -49,7 +49,7 @@
                                                 <p>Listed by: Lorem, ipsum.</p>
                                             </div>
                                             <div class="flex justify-between">
-                                                <a href="#" class="text-gray-50 bg-orange-300 px-4 py-2 rounded uppercase tracking-widest hover:bg-orange-200">edit</a>
+                                                <a href="{{ route('vehicles.edit', $vehicle->uuid) }}" class="text-gray-50 bg-orange-300 px-4 py-2 rounded uppercase tracking-widest hover:bg-orange-200">edit</a>
                                                 <a href="{{ route('vehicles.show', $vehicle->uuid) }}" class="text-gray-50 bg-blue-600 px-4 py-2 rounded uppercase tracking-widest hover:bg-blue-500">explore</a>
                                             </div>
                                             <div>
