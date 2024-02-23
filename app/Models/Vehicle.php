@@ -15,7 +15,7 @@ class Vehicle extends Model
      *
      * @var array
      */
-    protected $fillable = ['make', 'model', 'year', 'price', 'description', 'image'];
+    protected $fillable = ['uuid', 'make', 'model', 'year', 'price', 'description', 'image'];
 
     /**
      * Get the vehicle's calculated price.
