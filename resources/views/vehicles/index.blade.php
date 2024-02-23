@@ -46,7 +46,7 @@
                                         <div class="flex flex-col space-y-4 px-4 py-4">
                                             <div class="flex justify-between">
                                                 <p>${{ $vehicle->calculatedPrice }} per day</p>
-                                                <p>Listed by: Lorem, ipsum.</p>
+                                                <p>Listed by: {{ $vehicle->user->name }}</p>
                                             </div>
                                             <div class="flex justify-between">
                                                 <a href="{{ route('vehicles.edit', $vehicle->uuid) }}" class="text-gray-50 bg-orange-300 px-4 py-2 rounded uppercase tracking-widest hover:bg-orange-200">edit</a>

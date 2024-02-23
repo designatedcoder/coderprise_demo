@@ -37,7 +37,7 @@ class VehicleController extends Controller
             Storage::putFileAs('public/images', $file, $fileName);
         }
 
-        $vehicle = Vehicle::create([
+        $vehicle = auth()->user()->vehicles()->create([
             'uuid' => Str::uuid(),
             'make' => $request->make,
             'model' => $request->model,
@@ -86,7 +86,7 @@ class VehicleController extends Controller
             }
         }
 
-        $vehicle->update([
+        $vehicle = auth()->user()->vehicles()->update([
             'uuid' => Str::uuid(),
             'make' => $request->make,
             'model' => $request->model,
